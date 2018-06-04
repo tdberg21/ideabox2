@@ -14,7 +14,6 @@ export default class Idea extends Component {
     this.setState({
       title: this.props.title,
       body: this.props.body
-
     })
   }
 
