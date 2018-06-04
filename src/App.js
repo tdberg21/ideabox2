@@ -9,12 +9,20 @@ class App extends Component {
 
     this.state = {
       title: '',
-      toDos: []
+      body: ''
     };
   };
 
   updateTitle(event) {
     this.setState({title: event.target.value});
+  }
+
+  updateBody(event) {
+    this.setState({body: event.target.value})
+  }
+
+  addIdeatoList() {
+    
   }
 
   render() {
@@ -26,7 +34,7 @@ class App extends Component {
           Tell me about your ideas...
           </p>
           <input type="text" placeholder="Idea Title" onChange={(event) => this.updateTitle(event)}></input>
-          <input type="text" placeholder="Idea Body"></input>
+          <input type="text" placeholder="Idea Body" onChange={(event) => this.updateBody(event)}></input>
           <button> Submit Idea </button>
         </header>
         <Idea />
