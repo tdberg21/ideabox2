@@ -9,7 +9,8 @@ class App extends Component {
 
     this.state = {
       title: '',
-      body: ''
+      body: '',
+      ideas: []
     };
   };
 
@@ -21,6 +22,19 @@ class App extends Component {
     this.setState({body: event.target.value})
   }
 
+  submitIdea() {
+    let idea = {
+      title: this.state.title,
+      body: this.state.body
+    }
+    this.setState({
+      title: '',
+      body: '',
+      ideas: [...this.state.ideas, idea]
+    })
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -31,8 +45,9 @@ class App extends Component {
           </p>
           <input type="text" placeholder="Idea Title" onChange={(event) => this.updateTitle(event)}></input>
           <input type="text" placeholder="Idea Body" onChange={(event) => this.updateBody(event)}></input>
+          <button onClick={() => this.submitIdea()}>Submit Idea</button>
         </header>
-        <Idea title={this.state.title} body={this.state.body}/>
+        <Idea ideas={this.state.ideas}/>
       </div>
     );
   }

@@ -3,26 +3,18 @@ import React, { Component } from 'react';
 export default class Idea extends Component {
   constructor() {
     super();
-    this.addIdea = this.addIdea.bind(this);
-    this.state = {
-      title: '',
-      bodie: ''
-    }
-  }
-
-  addIdea() {
-    this.setState({
-      title: this.props.title,
-      body: this.props.body
-    })
   }
 
   render() {
     return(
       <div>
-        <button onClick={this.addIdea}>Submit Idea</button>
-        <h2> {this.state.title} </h2>
-        <p> {this.state.body}</p>
+        {this.props.ideas.map((idea, index) => {
+          return (
+            <div>
+              <h2>{idea.title}</h2>
+              <p>{idea.body}</p>
+            </div>
+        )})}
       </div>
     )
   }
