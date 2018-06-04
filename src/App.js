@@ -21,10 +21,6 @@ class App extends Component {
     this.setState({body: event.target.value})
   }
 
-  addIdeatoList() {
-    
-  }
-
   render() {
     return (
       <div className="App">
@@ -35,9 +31,8 @@ class App extends Component {
           </p>
           <input type="text" placeholder="Idea Title" onChange={(event) => this.updateTitle(event)}></input>
           <input type="text" placeholder="Idea Body" onChange={(event) => this.updateBody(event)}></input>
-          <button> Submit Idea </button>
         </header>
-        <Idea />
+        <Idea title={this.state.title} body={this.state.body}/>
       </div>
     );
   }
