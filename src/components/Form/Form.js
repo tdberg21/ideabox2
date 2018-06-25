@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Form.css';
 
 export default class Form extends Component {
   constructor() {
@@ -12,24 +13,18 @@ export default class Form extends Component {
   }
 
   handleInputs(event) {
-    // console.log(event.target.value)
-    // let { body, title } = event.target;
-    if (event.target.name === 'title') {
-      this.setState(
-        { title: event.target.value }
-      );
-    }; 
-    if (event.target.name === 'body') {
-      this.setState(
-        { body: event.target.value }
-      );
-    };
+    let {value, name} = event.target
+    this.setState({
+      [name]: value
+    })
   };
 
   sendIdeaToApp() {
     let newIdea = {
       title: this.state.title,
-      body: this.state.body
+      body: this.state.body,
+      quality: 'swill',
+      key: Date.now()
     };
     this.props.saveIdea(newIdea);
     this.setState({
@@ -37,7 +32,6 @@ export default class Form extends Component {
       body: ''
     })
   }
-
 
   render() {
     return (

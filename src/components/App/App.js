@@ -18,6 +18,39 @@ class App extends Component {
     })
   };
 
+  deleteIdea = (key) => {
+    let filteredIdeas = this.state.ideas.filter(idea => {
+      return (idea.key !== key)
+    })
+    this.setState({
+      ideas: filteredIdeas})
+  }
+
+  increaseQuality = (key) => {
+    let ideaToIncrease = this.state.ideas.filter(idea => (idea.key === key));
+    if (ideaToIncrease[0].quality === 'swill') {
+      ideaToIncrease[0].quality = 'plausible';
+    } else if (ideaToIncrease[0].quality === 'plausible') {
+      ideaToIncrease[0].quality = 'genius';
+    }
+    this.setState({
+      ideas: [...this.state.ideas]
+    })
+  }
+
+  decreaseQuality = (key) => {
+    let ideaToDecrease = this.state.ideas.filter(idea => idea.key === key);
+
+    if (ideaToDecrease[0].quality === 'genius') {
+      ideaToDecrease[0].quality = 'plausible';
+    } else if (ideaToDecrease[0].quality === 'plausible') {
+      ideaToDecrease[0].quality = 'swill';      
+    }
+    this.setState({
+      ideas: [...this.state.ideas]
+    })
+  }
+
 
   render() {
     return (
@@ -29,7 +62,11 @@ class App extends Component {
           </p>
         </header>
         <Form saveIdea= {this.saveIdea}/>
-        <CardContainer ideasList={this.state.ideas}/>
+        <CardContainer 
+          ideasList= {this.state.ideas}
+          deleteIdea= {this.deleteIdea}
+          increaseQuality= {this.increaseQuality}
+          decreaseQuality= {this.decreaseQuality}/>
       </div>
     );
   }

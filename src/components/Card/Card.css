@@ -1,0 +1,17 @@
+.card-buttons {
+  margin-left: 10px;
+  height: 25px;
+}
+
+.delete-button {
+  background-color: #ff0000;
+}
+
+.upvote-button {
+  background-color: #008000;
+}
+
+.downvote-button {
+  background-color: #f2f222;
+  color: #333;
+}

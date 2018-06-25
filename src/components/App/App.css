@@ -8,11 +8,12 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #e5f3f2;
   height: 100px;
   padding: 20px;
-  color: white;
+  color: #6d6e71;
   margin-bottom: 15px;
+  /* font-family: 'Roboto Slab', serif; */
 }
 
 .App-title {
